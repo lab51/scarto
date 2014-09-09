@@ -1,0 +1,188 @@
+<% provide(:title, @ad.title) %>
+
+<script>
+  function changeImage(str){
+    document.getElementById("current_image").innerHTML = "<a href='" + str + "'><img class='image_border' src='" + str + "' style='width:450px;'></a>"
+  }
+</script>
+
+
+<% model_data = Type.find_by_id(@ad.type_id) %>
+<% brand_data = Brand.find_by_id(model_data.brand_id) %>
+
+<ol class="breadcrumb gray">
+  <li><a href="/">scarto.pl</a></li> 
+  <span class="divider"> / </span> 
+  <li><a href='/<%= brand_data.brand_name %>'><%= brand_data.brand_name %></a></li>
+  <span class="divider"> / </span> 
+  <li class='active'><a href='/<%= brand_data.brand_name %>/<%= model_data.model_name %>'><%= model_data.model_name.gsub(/(_)/, ' ') %></a></li>
+  <span class="divider"> / </span> 
+  <li><%= @ad.title.downcase %></li>
+</ol>
+
+<div style='float:left;width:730px;margin-bottom:20px;'>
+  <div style='float:left;width:450px;margin-right:10px;'>
+  
+  <div class="parent-container">
+  <% images = AdImage.find_by_ad_id(@ad.id) %>
+  <% if images %>
+    <div id='current_image'>
+    <% if images.image1 %>
+      <a href="/data/img_ads/<%= images.image1 %>">
+        <img class='image_border' src="/data/img_ads/<%= images.image1 %>" style='width:450px;'>
+      </a>
+    <% else %>
+      <div style='width:450px;height:210px;background-color:#ccc;'>
+      </div>
+    <% end %>
+    </div>
+<div style='width:450px;height:23px;'>
+    <% if images.image1 %>      
+      <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image1 %>">
+      <img src="/data/img_ads_small/<%= images.image1 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>  
+    <% if images.image2 %>      
+      <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image2 %>">
+      <img src="/data/img_ads_small/<%= images.image2 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %><% if images.image3 %>      
+      <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image3 %>">
+      <img src="/data/img_ads_small/<%= images.image3 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    <% if images.image4 %>      
+      <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image4 %>">
+      <img src="/data/img_ads_small/<%= images.image4 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    <% if images.image5 %>      
+      <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image5 %>">
+      <img src="/data/img_ads_small/<%= images.image5 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    <% if images.image6 %>      
+    <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image6 %>">
+      <img src="/data/img_ads_small/<%= images.image6 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    <% if images.image7 %>      
+    <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image7 %>">
+      <img src="/data/img_ads_small/<%= images.image7 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    <% if images.image8 %>      
+    <a onmouseover='changeImage(this.href)' href="/data/img_ads/<%= images.image8 %>">  
+      <img src="/data/img_ads_small/<%= images.image8 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    <% if images.image9 %>      
+    <a href="/data/img_ads/<%= images.image9 %>">  
+      <img onmouseover='changeImage(this.href)' src="/data/img_ads_small/<%= images.image9 %>" style='width:45px;height:23px;'>
+      </a>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+<legend class='legends' style='margin-top:10px;'>opis</legend>
+    
+    <div id='description'>
+    <% description = AdDescription.find_by_ad_id(@ad.id) %>
+    <% if description %>
+    <%=simple_format h description.content %>
+    <% end %>
+
+    </div>
+  </div>
+
+  <div style='width:270px;float:left;'>    
+
+  <div style='font-size: 14px;font-weight: 400;'><span class="glyphicon glyphicon-search"></span> silnik:</div>  
+  <table class="table table-hover table-condensed" style="font-size:12px;width:270px;">
+    <tr>
+      <td class="gray-td">Przebieg:</td>
+      <td><%= @ad.km %> km</td>
+      <td class="gray-td">Paliwo:</td>
+      <td><%= @ad.fuel %></td>
+    </tr>
+    <tr>
+      <td class="gray-td">Pojemność:</td>
+      <td><%= @ad.engine_size %> cm3</td>
+      <td class="gray-td">Moc:</td>
+      <td><%= @ad.power %> KM</td>
+    </tr>
+  </table>
+
+   <div style='font-size: 14px;font-weight: 400;'>samochód:</div>  
+   <table class="table table-hover table-condensed" style="font-size:12px;width:270px;">
+    <tr>
+      <td class="gray-td">Rocznik:</td>
+      <td><%= @ad.production_year %></td>
+      <td class="gray-td">Skrzynia:</td>
+      <td><%= @ad.gearbox %></td>
+    </tr>
+    <tr>
+      <td class="gray-td">Kolor:</td>
+      <td><%= @ad.color %></td>
+      <td class="gray-td">Typ:</td>
+      <td><%= @ad.exterior_type %>
+      <% if @ad.doors %>
+      (<%= @ad.doors %> drzwi)
+      <% end %>  
+      </td>
+    </tr>
+  </table>   
+   <div style="font-size:26px;font-weight:bold;color:#B30B13;margin-top:40px;">
+      <%= @ad.price %></font> pln</p>
+   </div>
+
+<legend class='legends' style='margin-top:20px;'>kontakt</legend>
+telefon: <%= @ad.phone %>
+
+
+<legend class='legends' style='margin-top:41px;'>wyposażenie</legend>
+
+   <div style='font-size:12px;'>
+   <% extra = AdExtra.find_by_ad_id(@ad.id) %>
+   <% if extra %>
+    <b>bezpieczeństwo:</b> 
+    <ul>
+      <% if extra.abs == true %><li>abs</li><% end %>
+      <% if extra.asr == true %><li>asr</li><% end %>
+      <% if extra.eds == true %><li>eds</li><% end %>
+      <% if extra.esp == true %><li>esp</li><% end %>
+      <% if extra.fog_lights == true %><li>światła przeciwmgielne</li><% end %>
+      <% if extra.immobilliser == true %><li>immobilliser</li><% end %>
+      <% if extra.xenons == true %><li>xenony</li><% end %>         
+    </ul>
+    <b>komfort:</b>
+    <ul>
+      <% if extra.clima == true %><li>klimatyzacja</li><% end %>
+      <% if extra.electric_mirrors == true %><li>elektryczne lusterka</li><% end %>
+      <% if extra.electric_windows == true %><li>elektryczne szyby</li><% end %>
+      <% if extra.gps_nav == true %><li>nawigacja gps</li><% end %>
+      <% if extra.heat_seats == true %><li>podgrzewane fotele</li><% end %>
+      <% if extra.leather_seats == true %><li>skórzane siedzenia</li><% end %>
+      <% if extra.tempomat == true %><li>tempomat</li><% end %>
+      <% if extra.wheel_helper == true %><li>wspomaganie kierownicy</li><% end %>
+    </ul>
+    <b>dodatkowe:</b>
+    <ul> 
+      <% if extra.t4x4 == true %><li>napęd 4x4</li><% end %>
+      <% if extra.gas == true %><li>instalacja gazowa</li><% end %>
+      <% if extra.electric_windows == true %><li>elektryczne szyby</li><% end %>
+      <% if extra.hook == true %><li>hak</li><% end %>
+      <% if extra.rain_ind == true %><li>czujnik deszczu</li><% end %>
+      <% if extra.central_lock == true %><li>centralny zamek</li><% end %>
+      <% if extra.gearbox_block == true %><li>blokada skrzyni biegów</li><% end %>
+      <% if extra.diff == true %><li>blokada dyferencjału</li><% end %>
+      <% if extra.alarm == true %><li>alarm</li><% end %>
+      <% if extra.alu == true %><li>alufelgi</li><% end %>
+    </ul>
+   <% end %>
+   </div>
+  </div>
+</div>
+
+ 
+      

@@ -1,0 +1,39 @@
+<% provide(:title, "Ogłoszenia motoryzacyjne - BMW, Audi, VW i inne niemieckie marki") %>
+
+
+<div class="mainpage_bg">
+	<div style='height:157px;width:730px;'></div>  
+	<div style="height:30px;background-color:#fff;opacity:0.8;padding:5px;font-family: 'Signika', Arial, serif; font-weight: 300;color:#ccc;">marki: <a href="/audi">audi</a>  /  <a href="/bmw">bmw</a>  /  <a href="/mercedes-benz">mercedes-benz</a>  /  <a href="/mini">mini</a>  /  <a href="/opel">opel</a>  /  <a href="/porsche">porsche</a>  /  <a href="/seat">seat</a>  /  <a href="/skoda">skoda</a>  /  <a href="/volkswagen">volkswagen</a>
+	</div>
+</div>
+
+
+<div id='ads' style='margin-top:20px;'>
+
+	<div style='float:left;margin-bottom:20px;'>
+	<legend>samochód dnia</legend>
+  		<%= render('car_of_the_day') %>
+	</div>
+
+	<div style='padding-top:60px;'>
+	
+	<legend>samochody używane do 10000 zł</legend>
+	
+	<%= render('car_main_page') %>		
+	</div>
+
+
+	<div>
+	<br />
+	<legend>samochody używane do 20000 zł</legend>
+	<%= render('car_main_page20') %>			
+	</div>
+
+
+	<div>
+	<br />
+	<legend>samochody używane powyżej 20000 zł</legend>
+	<%= render('car_main_page100') %>			
+	</div>
+
+</div>

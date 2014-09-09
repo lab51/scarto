@@ -1,0 +1,10 @@
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a style='padding:7px 7px;' href="/ogloszenie/dodaj">dodaj ogłoszenie</a></li>
+          <% if session['user_id'] %>
+          <li><%= link_to "konto", user_path(session['user_id']), :class=>'link_top' %></li>
+          <li><%= link_to "wyloguj", sessions_destroy_path, :class=>'link_top' %></li>
+          <% else %>
+          <li><a class="link_top" href="/user/login">zaloguj</a></li>
+          <% end %>  
+          <li><a class="link_top" href="/o-stronie">o stronie</a></li>
+        </ul>

@@ -1,0 +1,25 @@
+<% provide(:title, "Nowe konto - rejestracja") %>
+
+<div class="row" style='margin-top:30px;margin-bottom:30px;'>
+  <div style='float:left;margin-left:50px;width:300px;'>
+  <h1>Nowe konto</h1>
+    <%= form_for(@user) do |f| %>
+
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    <br />
+      <%= f.label :hasło %><br />
+      <%= f.password_field :password %>
+    <br />
+     <%= f.label :potwierdzenie_hasła %>
+      <%= f.password_field :password_confirmation %>
+      <br>
+      <%= f.submit "Utwórz", class: "btn btn-small btn-primary" %>
+    <% end %>
+    <br/>
+
+  </div>
+  <div style='width:400px;float:right;'>
+  <img style='float:right;width:350px;border: 1px solid rgb(179, 179, 179);' src='/assets/brama.jpg' />
+  </div>
+</div>

@@ -1,0 +1,91 @@
+
+<% provide(:title, "#{params[:brand_name]} #{params[:model_name].gsub('_', ' ')} - ogłoszenia motoryzacyjne") %>
+<% if @ads.empty? %>
+<% provide(:value, '1') %>
+<% end %>
+
+<ol class="breadcrumb">
+  <li><a href="/">scarto.pl</a></li> 
+  <span class="divider"> / </span> 
+  <li class='active'><a href="/<%= params[:brand_name] %>"><%= params[:brand_name] %></a></li>
+  <span class="divider"> / </span> 
+  <li class='active'><%= params[:model_name].gsub('_', ' ') %></li>
+
+</ol>
+ 
+ <legend style='margin-bottom:10px;'></legend>
+
+<div style='float:left;width:110px;min-height:100%;'>
+<% brand = Brand.find_by_brand_name(params[:brand_name]) %>
+<% models = brand.types.all %>
+<div class="gray">modele:</div>
+<%# models = Type.find_by_brand_id(brand.id) %>
+  <ul class='nav'>
+    <% models.each do |z| %>
+    <li><a href="/<%= params[:brand_name] %>/<%= z.model_name %>"><%= z.model_name.gsub('_', ' ') %></a></li>
+    <% end %>
+  </ul>
+</div>
+
+<% @ads.each do |z| %>
+
+<div style='float:right;width:620px;margin-bottom:20px;'>
+  
+  <div style='float:left;width:295px;margin-right:10px;'>
+  <% main_img = AdImage.find_by_ad_id(z.id) %>
+  <% if main_img %>
+    <a href="/ogloszenie/<%= z.id %>">
+      <img class='image_border' src="/data/img_listings/<%= main_img.image1 %>"/>
+    </a>
+  <% else %>
+  <div style='width:305px;height:210px;background-color:#ccc;'>
+  </div>
+  <% end %>
+  </div>
+
+  <div style='width:315px;float:left;'>    
+  <p style="color:#657796;font-weight:bold;font-size:12px;text-decoration:none;padding-top:5px;">
+      <a href="/ogloszenie/<%= z.id %>" style='color:#657796;'><%= z.title %></a>
+  </p>
+
+  <table class="table table-hover table-condensed" style="font-size:12px;width:315px;">
+    <tr>
+      <td class="gray-td">rok produkcji:</td>
+      <td class="value-td"><%= z.production_year %></td>
+      <td class="gray-td">moc silnika (KM):</td> 
+      <td class="value-td"><%= z.power %></td>
+    </tr>    
+    <tr>
+      <td class="gray-td">przebieg (km):</td>
+      <td class="value-td"><%= z.km %></td> 
+      <td class="gray-td">pojemność:</td>
+      <td class="value-td"><%= z.engine_size %></td>
+    </tr>
+    <tr>
+      <td class="gray-td">typ:</td>    
+      <td class="value-td"><%= z.exterior_type %></td>
+      <td class="gray-td">rodzaj paliwa:</td>   
+      <td class="value-td"><%= z.fuel %></td>
+    </tr>
+  </table>
+
+   
+   <p><font style="font-size:26px;font-weight:bold;color:#B30B13;">
+      <%= z.price %></font> pln</p>
+   
+
+  </div>
+</div>
+<!--- koniec 1 ogloszenia -->     
+    <% end %>  
+
+
+<div class="pagination">  
+<ul >
+  <li class="disabled"><a href="#">&laquo;</a></li>
+  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+  <li class="disabled"><a href="#">&raquo;</a></li>
+</ul>
+</div>
+ 
+      

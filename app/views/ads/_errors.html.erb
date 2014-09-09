@@ -1,0 +1,20 @@
+<% if @ad.errors.any? %>
+  <div id="error_explanation">
+    <h2>Formularz jest błędnie wypełniony. Popraw błędy.</h2>
+ 
+    <ul>
+		<% @ad.errors.each do |attr,msg| %>
+		    <li><%= msg %></li>
+		<% end %>
+    </ul>
+    <ul>
+		<% @ad.errors[:content].each do |msg| %>
+		    <li><%= msg %></li>
+		<% end %>
+
+		</ul>
+	<ul>
+	<%= @user %>
+	</ul>
+  </div>
+<% end %>

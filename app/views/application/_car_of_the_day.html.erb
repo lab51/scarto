@@ -1,0 +1,44 @@
+<div style='float:left;width:330px;margin-right:10px;'>
+  <% main_img = AdImage.find_by_ad_id(@ad_extra.id) %>
+  <% if main_img %>
+    <a href="/ogloszenie/<%= @ad_extra.id %>">
+      <img src="/data/img_listings/<%= main_img.image1 %>"/>
+    </a>
+  <% else %>
+  <div style='width:330px;height:210px;background-color:#ccc;'>
+  </div>
+  <% end %>
+  </div>
+
+  <div style='width:390px;height:210px;float:left;'>    
+  <p style="color:#657796;font-weight:bold;font-size:12px;text-decoration:none;padding-top:5px;">
+      <a href="/ogloszenie/<%= @ad_extra.id %>" style='color:#657796;'><%= @ad_extra.title %></a>
+  </p>
+
+  <table class="table table-hover table-condensed" style="font-size:12px;width:390px;">
+    <tr>
+      <td class="gray-td">rok produkcji:</td>
+      <td class="value-td"><%= @ad_extra.production_year %></td>
+      <td class="gray-td">moc silnika (KM):</td> 
+      <td class="value-td"><%= @ad_extra.power %></td>
+    </tr>    
+    <tr>
+      <td class="gray-td">przebieg (km):</td>
+      <td class="value-td"><%= @ad_extra.km %></td> 
+      <td class="gray-td">pojemność:</td>
+      <td class="value-td"><%= @ad_extra.engine_size %></td>
+    </tr>
+    <tr>
+      <td class="gray-td">typ:</td>    
+      <td class="value-td"><%= @ad_extra.exterior_type %></td>
+      <td class="gray-td">rodzaj paliwa:</td>   
+      <td class="value-td"><%= @ad_extra.fuel %></td>
+    </tr>
+  </table>
+
+   
+   <p><font style="font-size:26px;font-weight:bold;color:#B30B13;">
+      <%= @ad_extra.price %></font> pln</p>
+   
+
+  </div>

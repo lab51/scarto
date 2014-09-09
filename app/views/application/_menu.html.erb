@@ -1,0 +1,102 @@
+<% models = Type.all %>
+
+<div> 
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    <a href='/audi'>audi<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 1).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    bmw<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 2).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    mercedes-benz<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 3).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    mini<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 4).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    opel<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 5).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    porsche<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 6).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    seat<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 7).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    skoda<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 8).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+    volkswagen<span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <% models.where(:brand_id => 9).each do |z| %>
+    <li><%= z.model_name %></li>
+    <% end %>
+  </ul>
+</div>
+</div>

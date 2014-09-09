@@ -1,0 +1,15 @@
+		<% @ads10.first(3).each do |z| %>
+		<% images = AdImage.find_by_ad_id(z.id) %>
+		<div style='width:230px;float:left;margin-right:13px;margin-bottom:20px;'>
+		<a href="/ogloszenie/<%= z.id %>"><img style='width:230px;' src="/data/img_listings/<%= images.image1 %>" /></a>
+		<p style="margin-top:5px;"><strong>
+		<a style="color:#363636;font-size:12px;font-family: 'Signika', Arial, serif; font-weight: 400;" href="/ogloszenie/<%= z.id %>"><%= z.title %></a></strong></p>			
+			
+		<div style="border-left:1px solid #c5c5c5;padding-left:10px;">
+		<strong> <font style="font-size:18px;font-weight:bold;color:#B30B13;">
+		<span style="font-size:14px;color:#B8B8B8;" class="glyphicon glyphicon-tag"></span> <%= z.price %></font> <font style="color:#575757;font-weight:bold;">zł</font></strong><br>
+		<%= z.fuel %> <font style="color:#B30B13;">/</font> <%= z.engine_size %> cm3 <font style="color:#B30B13;">/</font> 
+		 <%= z.production_year %> r. <br>
+		</div>	
+		</div>
+		<% end %>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<META NAME="ROBOTS" CONTENT="<%= robots(yield(:value)) %>">
+<link href='http://fonts.googleapis.com/css?family=Signika:600,400,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title><%= full_title(yield(:title)) %></title>
+  <meta name="description" content="<%= yield(:title) %>; scarto.pl - tylko niemieckie marki." >
+    
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41054268-1', 'scarto.pl');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+  $('.parent-container').magnificPopup({
+  delegate: 'a', // child items selector, by clicking on it popup will open
+  type: 'image'
+  // other options
+  });
+});
+</script>
+</head>
+<body>
+
+  <div class="container">
+      <div class="header">
+        <%= render('up_menu') %>
+        <h3 class="text-muted"><a class='logo' href='/'>scarto</a></h3>
+      </div>
+      <div class="row marketing">
+      <%= yield %>
+      </div>
+      <div class="footer">
+        <p>&copy; scarto.pl 2014</p>
+      </div>
+
+    </div> <!-- /container -->
+
+<%= debug(params) if Rails.env.development? %>
+
+</body>
+</html>

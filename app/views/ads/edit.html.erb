@@ -1,0 +1,358 @@
+<% provide(:title, "Edytuj ogłoszenie") %>
+
+<h1 style='font-size:14px;'>Dodaj ogłoszenie</h1>
+<%= render('errors') %>
+<script>
+$(document).ready(function() {
+	$('#ad_brand_id').on('change', function() {
+	  //alert( this.value ); // or $(this).val()
+		//getModels(this.value);
+		var nr1= "<select name='ad[type_id]' id='ad_type_id'><option value='1'>a1</option><option value='2'>a2</option><option value='3'>a3</option><option value='4'>a4</option><option value='5'>a5</option><option value='6'>100</option><option value='7'>200</option><option value='8'>80</option><option value='9'>90</option><option value='10'>a6</option><option value='11'>a7</option><option value='12'>a8</option><option value='13'>q3</option><option value='14'>q5</option><option value='15'>q7</option><option value='16'>r8</option><option value='17'>rs2</option><option value='18'>rs3</option><option value='19'>rs4</option><option value='20'>rs5</option><option value='21'>rs6</option><option value='22'>s2</option><option value='23'>s3</option><option value='24'>s4</option><option value='25'>s5</option><option value='26'>s6</option><option value='27'>s8</option><option value='28'>sq5</option><option value='29'>tt</option><option value='30'>v8</option><option value='31'>inne</option></select>"
+				var nr2= "<select name='ad[type_id]' id='ad_type_id'><option value='32'>seria 1</option><option value='33'>seria 2</option><option value='34'>seria 3</option><option value='35'>seria 5</option><option value='36'>seria 6</option><option value='37'>seria 7</option><option value='38'>x1</option><option value='39'>x3</option><option value='40'>x4</option><option value='41'>x5</option><option value='42'>x6</option><option value='43'>z4</option><option value='44'>i3</option><option value='45'>i8</option><option value='46'>m3</option><option value='47'>m5</option><option value='48'>m6</option><option value='49'>inne</option></select>"
+var nr3= "<select name='ad[type_id]' id='ad_type_id'><option value='50'>a klasa</option><option value='51'>b klasa</option><option value='52'>c klasa</option><option value='53'>ce klasa</option><option value='54'>citan</option><option value='55'>cl klasa</option><option value='56'>cla klasa</option><option value='57'>clc</option><option value='58'>clk klasa</option><option value='59'>cls klasa</option><option value='50'>e klasa</option><option value='61'>g klasa</option><option value='62'>gl klasa</option><option value='63'>gla klasa</option><option value='64'>GLK</option><option value='65'>M klasa</option><option value='66'>r klasa</option><option value='67'>s klasa</option><option value='68'>sl klasa</option><option value='69'>slk klasa</option><option value='70'>slr</option><option value='71'>sprinter</option><option value='72'>v klasa</option><option value='73'>vaneo</option><option value='74'>viano</option><option value='75'>vito</option><option value='76'>inny</option></select>"
+var nr4= "<select name='ad[type_id]' id='ad_type_id'><option value='77'>clubman</option><option value='78'>cooper</option><option value='79'>cooper s</option><option value='80'>countryman</option><option value='81'>one</option><option value='82'>paceman</option><option value='83'>inny</option></select>"				
+var nr5= "<select name='ad[type_id]' id='ad_type_id'><option value='84'>adam</option><option value='85'>agila</option><option value='86'>antara</option><option value='87'>astra</option><option value='88'>calibra</option><option value='89'>corsa</option><option value='90'>frontera</option><option value='91'>gt</option><option value='92'>insignia</option><option value='93'>meriva</option><option value='94'>mokka</option><option value='95'>movano</option><option value='96'>omega</option><option value='97'>signum</option><option value='98'>tigra</option><option value='99'>vectra</option><option value='100'>vivaro</option><option value='101'>zafira</option><option value='102'>inny</option></select>"				
+var nr6= "<select name='ad[type_id]' id='ad_type_id'><option value='103'>356</option><option value='104'>911</option><option value='105'>912</option><option value='106'>924</option><option value='107'>928</option><option value='108'>944</option><option value='109'>968</option><option value='110'>boxster</option><option value='111'>carrera gt</option><option value='112'>cayenne</option><option value='113'>cayenne gts</option><option value='114'>cayenne s</option><option value='115'>cayenne turbo</option><option value='116'>cayman</option><option value='117'>macan</option><option value='118'>panamera</option><option value='119'>inny</option></select>"				
+			
+var nr7= "<select name='ad[type_id]' id='ad_type_id'><option value='120'>alhambra</option><option value='121'>altea</option><option value='122'>altea xl</option><option value='123'>arosa</option><option value='124'>cordoba</option><option value='125'>exeo</option><option value='126'>ibiza</option><option value='127'>inca</option><option value='128'>leon</option><option value='129'>mii</option><option value='130'>toledo</option><option value='131'>inny</option></select>"	
+
+var nr8= "<select name='ad[type_id]' id='ad_type_id'><option value='132'>citigo</option><option value='133'>fabia</option><option value='134'>favorit</option><option value='135'>felicia</option><option value='136'>octavia</option><option value='137'>praktik</option><option value='138'>rapid</option><option value='139'>roomster</option><option value='140'>superb</option><option value='141'>yeti</option><option value='142'>inny</option></select>"
+	
+var nr9= "<select name='ad[type_id]' id='ad_type_id'><option value='143'>amarok</option><option value='144'>beetle</option><option value='145'>bora</option><option value='146'>buggy</option><option value='147'>caddy</option><option value='148'>california</option><option value='149'>caravelle</option><option value='150'>cc</option><option value='151'>corrado</option><option value='152'>eos</option><option value='153'>fox</option><option value='154'>garbus</option><option value='155'>golf</option><option value='156'>golf plus</option><option value='157'>gti</option><option value='158'>jetta</option><option value='159'>kafer</option><option value='160'>lupo</option><option value='161'>multivan</option><option value='162'>new beetle</option><option value='163'>passat</option><option value='164'>passat cc</option><option value='165'>phateon</option><option value='166'>polo</option><option value='167'>scirocco</option><option value='168'>sharan</option><option value='169'>tiguan</option><option value='170'>touareg</option><option value='171'>transporter</option><option value='172'>up</option><option value='173'>vento</option><option value='174'>touran</option><option value='175'>inny</option></select>"
+
+		if(this.value == 1){
+			document.getElementById("select_model").innerHTML = nr1;
+		} else if (this.value == 2) {
+			document.getElementById("select_model").innerHTML = nr2;
+		} else if (this.value == 3) {
+			document.getElementById("select_model").innerHTML = nr3;
+		} else if (this.value == 4) {
+			document.getElementById("select_model").innerHTML = nr4;
+		} else if (this.value == 5) {
+			document.getElementById("select_model").innerHTML = nr5;
+		} else if (this.value == 6) {
+			document.getElementById("select_model").innerHTML = nr6;
+		} else if (this.value == 7) {
+			document.getElementById("select_model").innerHTML = nr7;
+		} else if (this.value == 8) {
+			document.getElementById("select_model").innerHTML = nr8;
+		} else if (this.value == 9) {
+			document.getElementById("select_model").innerHTML = nr9;
+		}
+	});
+})
+</script>
+<div style='width:730px;float:left;'>
+
+ 
+    <%= form_for @ad, :html => { :multipart => true, :name => 'new_ad' } do |f| %>
+    <%# render 'error_messages' %>
+<legend>Dane samochodu</legend>
+	<div style='width:730px;float:left;margin-bottom:20px;margin-top:10px;'>
+      <div style='float:left;width:555px;'>
+      <%= f.label :tytuł %><br />
+      <%= f.text_field :title, :style => 'width:400px;' %>
+	  </div>		
+	</div>
+
+<div style='width:730px;float:left;'>
+	<div class='new_add'>
+      <%= f.label :marka %>
+		<%= (f.select :brand_id, options_from_collection_for_select(Brand.all, :id, :brand_name, :selected => f.object.brand_id)) %>
+	</div>
+    
+
+	<div id='select_model' class='new_add'>
+
+    <%= f.label :model %>	
+
+	<% brand_id = Type.find_by(:id=>f.object.type_id).brand_id %>
+    <%= (f.select :type_id, options_from_collection_for_select(Type.where(:brand_id => brand_id).all, :id, :model_name, :selected => f.object.type_id)) %>
+	</div>
+
+
+	<div class='new_add'>
+      <%= f.label :numer_telefonu %>
+      <%= f.text_field :phone %>
+	</div>
+
+	<div class='new_add'>
+      <%= f.label :rok_produkcji %>
+			<%= f.select(:production_year, options_for_select(list_years, :selected => f.object.production_year)) %>
+	</div>
+</div>
+
+<div style='width:730px;float:left;margin-top:5px;'>
+	<div class='new_add'>	
+      <%= f.label :nadwozie %>
+			<%= f.select(:exterior_type, options_for_select([['wybierz', ''], ['kabriolet', 'kabriolet'], ['sedan', 'sedan'], ['sportowy', 'sportowy'], ['kombi', 'kombi'], ['hatchback', 'hatchback'], ['pickup', 'pickup'], ['terenowy', 'terenowy'], ['van', 'van'], ['suv', 'suv'], ['inny', 'inny']], :selected => f.object.exterior_type)) %>
+	</div>
+    <div class='new_add'>
+      <%= f.label :cena %>
+      <%= f.text_field :price %>
+    </div>  
+	<div class='new_add'>
+      <%= f.label :skrzynia_biegów %>
+			<%= f.select(:gearbox, options_for_select([['wybierz', ''], ['manualna', 'manualna'], ['automatyczna', 'automatyczna'], ['sekwencyjna', 'sekwencyjna']], :selected => f.object.gearbox)) %>
+	</div>
+    <div class='new_add'>
+      <%= f.label :rodzaj_paliwa %>
+			<%= f.select(:fuel, options_for_select([['wybierz', ''], ['benzyna', 'benzyna'], ['diesel', 'diesel'], ['benz.+gaz', 'gaz'], ['elektryczny', 'elektryczny'], ['hybryda', 'hybryda'], ['inne', 'inne']], :selected => f.object.fuel)) %>
+	</div>
+</div>
+<div style='width:730px;float:left;margin-top:5px;'>
+    <div class='new_add'>
+      <%= f.label :liczba_drzwi %>
+			<%= f.select(:doors, options_for_select([['wybierz', ''], ['2/3', 3], ['4/5', 5]], :selected => f.object.doors)) %>
+	</div>
+    <div class='new_add'>
+      <%= f.label :kolor_nadwozia %>
+			<%= f.select(:color, options_for_select([['wybierz', ''], ['grafitowy', 'grafitowy'], ['granatowy', 'granatowy'], ['niebieski', 'niebieski'], ['pomarańczowy', 'pomarańczowy'], ['różowy', 'różowy'], ['srebrny', 'srebrny'], ['szary', 'szary'], ['fioletowy', 'fioletowy'], ['wiśniowy', 'wiśniowy'], ['zielony', 'zielony'], ['złoty', 'złoty'], ['żółty', 'żółty'], ['czarny', 'czarny'], ['czerwony', 'czerwony'], ['brązowy', 'brązowy'], ['bordowy', 'bordowy'], ['biały', 'biały'], ['beżowy', 'beżowy'], ['inny', 'inny']], :selected => f.object.color)) %>
+	</div>
+	<div class='new_add'>
+      <%= f.label :przebieg %>
+      <%= f.text_field :km %>
+	</div>
+	<div class='new_add'>
+      <%= f.label :pojemność %>
+      <%= f.text_field :engine_size %>
+	</div>
+</div>
+<div style='width:730px;float:left;margin-top:5px;margin-bottom:20px;'>
+	<div class='new_add'>	
+      <%= f.label :moc %>
+      <%= f.text_field :power %>
+	</div>
+	<% if session[:user_id]==nil %>
+    <div class='new_add'>
+    <%= f.label :adres_email %>
+    <%= f.text_field :email %>
+    </div>
+	 <% else %>
+  	<% user_data = User.find(session[:user_id]) %>
+  	<%= f.hidden_field(:email, :value=> user_data.email) %> 
+  	<% end %>
+</div>
+
+<legend>Opis</legend>
+  	<div style='width:100%;float:left;margin-top:10px;margin-bottom:20px;'>
+	<%= f.fields_for :ad_description do |desc| %>
+	        <fieldset>
+	        <%= desc.text_area :content, :style=>'width:450px;height:150px;' %>
+				</fieldset>
+	<% end %>
+	</div>
+<div style="margin-top:20px;">
+<legend>Wyposażenie dodatkowe</legend>
+			<%= f.fields_for :ad_extra do |field| %>
+	<div style="width:170px;float:left;">
+	        <%= field.check_box(:clima, :checked => field.object.clima) %>
+	        <%= field.label :klimatyzacja %>
+	        <br/>
+	        <%= field.check_box(:abs, :checked => field.object.abs) %>
+	        <%= field.label :abs %>
+	        <br/>
+	        <%= field.check_box(:asr, :checked => field.object.asr) %>
+	        <%= field.label :asr %>
+	        <br/>
+	        <%= field.check_box(:eds, :checked => field.object.eds) %>
+	        <%= field.label :eds %>
+	        <br/>
+	        <%= field.check_box(:esp, :checked => field.object.esp) %>
+	        <%= field.label :esp %>
+	        <br/>
+	        <%= field.check_box(:alu, :checked => field.object.alu) %>
+	        <%= field.label :alufelgi %>
+	</div>        
+	<div style="width:170px;float:left;">
+	        <%= field.check_box(:alarm, :checked => field.object.alarm) %>
+	        <%= field.label :alarm %>
+	        <br/>
+	        <%= field.check_box(:diff, :checked => field.object.diff) %>
+			<%= field.label :blokada_dyferencjału %>
+			<br/>
+	        <%= field.check_box(:gearbox_block, :checked => field.object.gearbox_block) %>
+	        <%= field.label :blokada_skrzyni_biegów %>
+	        <br/>
+	        <%= field.check_box(:central_lock, :checked => field.object.central_lock) %>
+	        <%= field.label :centralny_zamek %>
+	        <br/>
+	        <%= field.check_box(:rain_ind, :checked => field.object.rain_ind) %>
+	        <%= field.label :czujnik_deszczu %>
+	        <br/>
+	        <%= field.check_box(:electric_mirrors, :checked => field.object.electric_mirrors) %>
+	        <%= field.label :elektryczne_lusterka %>
+	</div>
+	<div style="width:170px;float:left;">
+	        <%= field.check_box(:hook, :checked => field.object.hook) %>
+	        <%= field.label :hak %>
+	        <br/>
+	        <%= field.check_box(:immobilliser, :checked => field.object.immobilliser) %>
+	        <%= field.label :immobilliser %>
+	        <br/>
+	        <%= field.check_box(:gas, :checked => field.object.gas) %>
+	        <%= field.label :instalacja_gazowa %>
+	        <br/>
+	        <%= field.check_box(:electric_windows, :checked => field.object.electric_windows) %>
+	        <%= field.label :elektryczne_szyby %>
+	        <br/>
+	        <%= field.check_box(:xenons, :checked => field.object.xenons) %>
+	        <%= field.label :xenony %>
+	        <br/>
+	        <%= field.check_box(:heat_seats, :checked => field.object.heat_seats) %>
+	        <%= field.label :podgrzewane_siedzenia %>
+	</div>
+	<div style="width:170px;float:left;">
+	        <%= field.check_box(:leather_seats, :checked => field.object.leather_seats) %>
+	        <%= field.label :skórzane_siedzenia %>
+	        <br/>
+	        <%= field.check_box(:gps_nav, :checked => field.object.gps_nav) %>
+	        <%= field.label :nawigacja_gpw %>
+	        <br/>
+	        <%= field.check_box(:fog_lights, :checked => field.object.fog_lights) %>
+	        <%= field.label :światła_przeciwmgielne %>
+	        <br/>
+	        <%= field.check_box(:tempomat, :checked => field.object.tempomat) %>
+	        <%= field.label :tempomat %>
+	        <br/>
+	        <%= field.check_box(:wheel_helper, :checked => field.object.wheel_helper) %>
+	        <%= field.label :wspomaganie_kierownicy %>
+	        <br/>
+	        <%= field.check_box(:t4x4, :checked => field.object.t4x4) %>
+	        <%= field.label :napęd4x4 %>
+	</div>				
+</div>					
+	    <% end %>
+<div style='width:730px;margin-top:30px;margin-bottom:30px;float:left;'>
+<legend>Zdjęcia</legend>	    
+	<table>
+	<tr>
+	<th>obecne zdjęcie</th>
+	<th>zmień / dodaj</th>	
+	</tr>
+	<%= fields_for :ad_image do |img| %>
+      <% images = @ad.ad_image %>
+      <tr>	
+	  <td>
+	  <% if images and images.image1 %>
+	  <img src="/data/img_ads/<%= images.image1 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>
+	  </td>
+	  <td>
+	  <%= img.label :zdjęcie_1_główne %>
+      <%= img.file_field(:image1) %><br />
+	  </td>
+	  </tr><tr>
+	  <td>	  
+	  <% if images and images.image2 %>
+	  <img src="/data/img_ads/<%= images.image2 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>
+	  </td>
+	  <td>
+      <%= img.label :zdjęcie_2 %>
+      <%= img.file_field(:image2) %><br />
+	  </td>
+	  </tr>
+	  <tr>
+	  <td>
+	  <% if images and images.image3 %>
+	  <img src="/data/img_ads/<%= images.image3 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>
+	  </td><td>			
+      <%= img.label :zdjęcie_3 %>
+      <%= img.file_field(:image3) %><br />
+	  </td>
+	  </tr><tr>
+	  <td>
+	  <% if images and images.image4 %>
+	  <img src="/data/img_ads/<%= images.image4 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>
+	  </td>
+	  <td>
+	  <%= img.label :zdjęcie_4 %>
+      <%= img.file_field(:image4) %><br />
+	  </td>
+	  </tr>
+	  <tr>
+	  <td>
+	  <% if images and images.image5 %>
+	  <img src="/data/img_ads/<%= images.image5 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>	
+	  </td>
+	  <td>		
+      <%= img.label :zdjęcie_5 %>
+      <%= img.file_field(:image5) %><br />
+	  </td>
+	  </tr>
+	  <tr>
+	  <td>
+	  <% if images and images.image6 %>
+	  <img src="/data/img_ads/<%= images.image6 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>	
+	  </td>
+	  <td>		
+      <%= img.label :zdjęcie_6 %>
+      <%= img.file_field(:image6) %><br />
+	  </td>
+	  </tr>
+	  <tr>
+	  <td>
+	  <% if images and images.image7 %>
+	  <img src="/data/img_ads/<%= images.image7 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>	
+	  </td>	
+	  <td> 	
+	  <%= img.label :zdjęcie_7 %>
+      <%= img.file_field(:image7) %><br />
+	  </td>
+	  </tr>
+	  <tr>
+	  <td>
+	  <% if images and images.image8 %>
+	  <img src="/data/img_ads/<%= images.image8 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>	
+	  </td>
+	  <td>		
+      <%= img.label :zdjęcie_8 %>
+      <%= img.file_field(:image8) %><br />
+	  </td>
+	  </tr>
+	  <tr>
+	  <td>
+	  <% if images and images.image9 %>
+	  <img src="/data/img_ads/<%= images.image9 %>" class='image_edit' />
+	  <% else %>
+	  brak zdjęcia
+	  <% end %>	
+	  </td>
+	  <td>	
+      <%= img.label :zdjęcie_9 %>
+      <%= img.file_field(:image9) %>
+      </td>
+      </tr>
+	<% end %>		
+	
+	</table>
+	
+</div>			
+<div style='margin-top:30px;'>
+      <%= f.submit "edytuj ogłoszenie", class: "btn btn-large btn-primary" %>
+    <% end %>
+ </div>
+</div>
