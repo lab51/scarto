@@ -153,10 +153,6 @@ class AdsController < ApplicationController
     redirect_to root_path
   end
 
-  #show page /o-stronie
-  def about
-  end
-
   private
   
   def ad_params
