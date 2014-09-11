@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   root 'application#index'
   
   get 'sessions/destroy'
-  get 'o-stronie' => 'ads#about'  
+  get 'o-stronie' => 'application#about'  
   get 'user/login' => 'sessions#new'
   get 'user/logout' => 'sessions#destroy'
 
   resources :ads
-  resources :sessions #, only: [:new, :create, :destroy]
+  resources :sessions 
   resources :users
   resources :brands 
   resources :types
