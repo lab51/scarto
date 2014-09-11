@@ -12,5 +12,8 @@ class ApplicationController < ActionController::Base
     @ads100 = Ad.where("price > ?", 20000)
   end
 
-
+  #show page /o-stronie
+  def about
+  end
+  
 end
